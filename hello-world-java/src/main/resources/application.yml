@@ -1,0 +1,31 @@
+micronaut:
+  application:
+    name: hello-world
+
+---
+micronaut:
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+
+---
+micronaut:
+  server:
+    cors:
+      enabled: false
+      configurations:
+        web:
+          allowedOrigins:
+            - http://localhost:80
+          allowedMethods:
+            - POST
+            - PUT
+            - GET
+            - DELETE
+            - TRACE
+          allowedHeaders:
+            - Content-Type
+            - api_key
+            - Authorization
